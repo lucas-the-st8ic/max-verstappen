@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- responsividade -->
+  <title>TU TU DU DU 🏎️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 50px;
+      color: #333;
+      padding: 0 10px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    /* Tela do jumpscare */
+    #jumpscare {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #jumpscare video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* cobre a tela inteira sem deformar */
+    }
+  </style>
+</head>
+<body>
+  <h1>Clique no botão para ver a surpresa 🎁</h1>
+  <button onclick="mostrarJumpscare()">Abrir Surpresa</button>
+
+  <div id="jumpscare">
+    <!-- coloque seu vídeo local na mesma pasta -->
+    <video id="video" src="./video/jumpscare.mp4" preload="auto" playsinline loop></video>
+  </div>
+
+  <script>
+    function mostrarJumpscare() {
+      let tela = document.getElementById("jumpscare");
+      let video = document.getElementById("video");
+
+      tela.style.display = "flex";   // aparece em tela cheia
+      video.currentTime = 0;         // sempre começa do início
+      video.volume = 0.5;            // volume baixo
+      video.play();                  // inicia o vídeo
+    }
+  </script>
+</body>
+</html>
